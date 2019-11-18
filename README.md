@@ -36,5 +36,11 @@ Configuring training
 --- eg : label_map_path: "C:/Users/Gilbert/Downloads/Other/models/research/object_detection/training/labelmap.pbtxt"
 -- Line 130: change num_example to the number of images in your test folder
 
-$ python train.py
+Training model 
+</br>
+- python model_main.py --logtostderr --model_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
+- tensorboard --logdir=training
+</br>
+Exporting inference graph
+
 ```
