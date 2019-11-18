@@ -21,6 +21,7 @@ $ python ../main.py
 ```sh
 $ python transform_image_resolution.py -h
 $ python xml_to_scv.py -h 
+configuring in file generate_tfrecord.py 
 $ python generate_tfrecord.py
 ...
 Configuring training
@@ -49,3 +50,4 @@ Testing object detector
 - PATH_TO_LABELS = 'training/labelmap.pbtxt'
 
 ```
+[Link reference](https://gilberttanner.com/blog/creating-your-own-objectdetector)
