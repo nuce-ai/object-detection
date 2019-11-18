@@ -37,10 +37,15 @@ Configuring training
 -- Line 130: change num_example to the number of images in your test folder
 
 Training model 
-</br>
-- python model_main.py --logtostderr --model_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
-- tensorboard --logdir=training
-</br>
+
+$ python model_main.py --logtostderr --model_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
+$ tensorboard --logdir=training
+
 Exporting inference graph
+$ python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_pets.config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph
+Testing object detector
+- MODEL_NAME = 'inference_graph'
+- PATH_TO_FROZEN_GRAPH = MODEL_NAME + '/frozen_inference_graph.pb'
+- PATH_TO_LABELS = 'training/labelmap.pbtxt'
 
 ```
