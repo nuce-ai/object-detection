@@ -16,3 +16,25 @@ $ python ../main.py
 
 
 [Link database](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
+
+### Training 
+```sh
+$ python transform_image_resolution.py -h
+$ python xml_to_scv.py -h 
+$ python generate_tfrecord.py
+...
+Configuring training
+- Model : faster_rcnn_inception_v2_pets
+- Creating a label map (labelmap.pbtxt)
+- Creating a training configuration
+-- Line 9: change the number of classes to number of objects you want to detect (4 in my case)
+-- Line 106: change fine_tune_checkpoint to the path of the model.ckpt file
+--- eg : fine_tune_checkpoint: "C:/Users/Gilbert/Downloads/Other/models/research/object_detection/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
+-- Line 123: change input_path to the path of the train.records file
+-- Line 135: change input_path to the path of the test.records file
+-- Line 125 and 137: change label_map_path to the path of the label map
+--- eg : label_map_path: "C:/Users/Gilbert/Downloads/Other/models/research/object_detection/training/labelmap.pbtxt"
+-- Line 130: change num_example to the number of images in your test folder
+
+$ python train.py
+```
